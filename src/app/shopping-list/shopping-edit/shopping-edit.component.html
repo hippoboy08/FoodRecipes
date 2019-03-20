@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form (ngSubmit)="updateIngredientList(tdForm)" #tdForm="ngForm">
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="name">Name</label>
+          <!-- no longer use Local reference, but ngForm instead <input #nameInput type="text" id="name" class="form-control"> -->
+          <input ngModel required type="text" name="ingreName" id="name" class="form-control">
+        </div>
+
+        <div class="col-sm-2 form-group">
+          <label for="amount">Amount</label>
+          <!-- <input #amountInput type="number" id="amount" class="form-control"> -->
+          <input ngModel required #amountInput 
+            pattern="^[1-9]+[0-9]*$"
+            type="number" name="ingreAmount" id="amount" class="form-control">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <!-- <button class="btn btn-success" type="button" (click) = "addIngredient()">Add</button> -->
+          <button class="btn btn-success" type="submit" [disabled]="tdForm.invalid"> {{editMode === true? 'Save' : 'Add'}} </button>
+          <button class="btn btn-danger" type="button" (click)="deleteIngredient()" 
+            *ngIf="editMode === true">Delete
+          </button>
+          <button class="btn btn-primary" type="button" (click)="clear()">Clear</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
