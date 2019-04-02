@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
+import { StoreModule, StoreRootModule } from '@ngrx/store';
 
 // import { RecipesModule } from './recipes/recipes.module';
 import { SharedModule } from './shared/shared.module';
-// import { ShoppingListModule } from './shopping-list/shopping-list.module';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
+import { shoppingListReducer } from './shopping-list/store/shopping-list.reducers';
 
 import { AppComponent } from './app.component';
 
@@ -27,7 +29,8 @@ import { CoreModule } from './core/core.module';
     /* These modules are now lazy loaded in app-routing module */
     // RecipesModule,
     // ShoppingListModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forRoot({shoppingList: shoppingListReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
