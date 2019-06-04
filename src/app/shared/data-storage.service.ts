@@ -32,7 +32,7 @@ export class DataStorageService {
   }
 
   getRecipes() {
-    const token = this.authService.getToken();
+    // const token = this.authService.getToken();
     // return this.http.get(this.databaseURL+'/recipes.json'+'?auth='+token)
     return this.http.get(this.databaseURL+'/recipes.json', {
       observe: 'body',
