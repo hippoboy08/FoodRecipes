@@ -9,22 +9,22 @@ import { Subject } from "rxjs";
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
   private recipes: Recipe[] = [
-    new Recipe('Spring rolls', 
-      'Vietnamese Food', 
-      'https://img.taste.com.au/AhhCj8s8/w720-h480-cfill-q80/taste/2018/02/chicken-spring-rolls-134846-1.jpg',
-      [
-        new Ingredient('Rice Paper', 5),
-        new Ingredient('Meat', 2)
-      ]
-    ),
-    new Recipe('Pho', 
-      'Vietnamese Famous Food', 
-      'https://img.taste.com.au/FOmGb0F6/taste/2016/11/chicken-pho-108887-1.jpeg',
-      [
-        new Ingredient('Vermicelli', 3),
-        new Ingredient('Beef', 3)
-      ]
-    )
+    // new Recipe('Spring rolls', 
+    //   'Vietnamese Food', 
+    //   'https://img.taste.com.au/AhhCj8s8/w720-h480-cfill-q80/taste/2018/02/chicken-spring-rolls-134846-1.jpg',
+    //   [
+    //     new Ingredient('Rice Paper', 5),
+    //     new Ingredient('Meat', 2)
+    //   ]
+    // ),
+    // new Recipe('Pho', 
+    //   'Vietnamese Famous Food', 
+    //   'https://img.taste.com.au/FOmGb0F6/taste/2016/11/chicken-pho-108887-1.jpeg',
+    //   [
+    //     new Ingredient('Vermicelli', 3),
+    //     new Ingredient('Beef', 3)
+    //   ]
+    // )
   ];
 
   constructor(private shoppingListService: ShoppingListService) {}

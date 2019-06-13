@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { AuthEffects } from './auth/store/auth.effects';
+import { AppEffects } from './app.effects';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { AuthEffects } from './auth/store/auth.effects';
     // ShoppingListModule,
     SharedModule,
     StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot([AuthEffects])
+    // EffectsModule.forRoot([AuthEffects, AppEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
