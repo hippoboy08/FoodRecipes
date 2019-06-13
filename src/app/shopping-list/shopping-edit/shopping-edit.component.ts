@@ -16,7 +16,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   // @ViewChild('nameInput') nameInputRef:ElementRef;
   // @ViewChild('amountInput') amountInputRef:ElementRef;
   /* Template Driven approach */
-  @ViewChild('tdForm') tdForm: NgForm;
+  @ViewChild('tdForm', {static: true}) tdForm: NgForm;
   subscription: Subscription;
   editMode: boolean = false;
   editedIngredientIndex: number;
