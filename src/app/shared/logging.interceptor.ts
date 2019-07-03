@@ -6,7 +6,7 @@ export class LoggingInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     /* Catch any event, including the request and response */
     return next.handle(req).pipe(tap(
-      event => console.log('Logging interceptor:', event)
+      // event => console.log('Logging interceptor:', event)
     ));
   }
 }

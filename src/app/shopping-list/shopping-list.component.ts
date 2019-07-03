@@ -18,7 +18,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   constructor(private shoppingListService: ShoppingListService, 
-    private store: Store<fromApp.AppStates>
+    private store: Store<fromApp.AppState>
     ) { }
 
   ngOnInit() {

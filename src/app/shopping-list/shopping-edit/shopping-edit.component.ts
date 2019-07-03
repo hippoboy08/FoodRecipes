@@ -23,7 +23,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   editedIngredientIndex: number;
 
   constructor(private shoppingListService: ShoppingListService,
-    private store: Store<fromApp.AppStates>
+    private store: Store<fromApp.AppState>
   ) { }
 
   ngOnInit() {
@@ -52,7 +52,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
       } else {
         this.editMode = false;
       }
-    })
+    });
   }
 
   ngOnDestroy() {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from "firebase";
+import { AuthService } from './auth/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +11,16 @@ import * as firebase from "firebase";
 export class AppComponent implements OnInit {
   title = 'section6';
 
+  constructor(private authService: AuthService) {}
+
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     firebase.initializeApp({
-      apiKey: "AIzaSyD5yzCKgIX9v6l91Y3NJ_mDOc8pXXlArXE",
-      authDomain: "recipe-book-c0342.firebaseapp.com",
+      apiKey: environment.firebaseAPIKey,
+      authDomain: environment.firebaseAuthDomain,
     });
+
+    this.authService.rememberLogin();
   }
 }
