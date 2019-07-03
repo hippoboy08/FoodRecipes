@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "section3": {
+    "foodRecipes": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/foodrecipes",
+            "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -51,18 +51,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "section3:build"
+            "browserTarget": "foodRecipes:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "section3:build:production"
+              "browserTarget": "foodRecipes:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "section3:build"
+            "browserTarget": "foodRecipes:build"
           }
         },
         "test": {
@@ -93,10 +93,28 @@
               "**/node_modules/**"
             ]
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
         }
       }
     },
-    "section3-e2e": {
+    "foodRecipes-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -104,11 +122,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "section3:serve"
+            "devServerTarget": "foodRecipes:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "section3:serve:production"
+              "devServerTarget": "foodRecipes:serve:production"
             }
           }
         },
@@ -124,5 +142,5 @@
       }
     }
   },
-  "defaultProject": "section3"
+  "defaultProject": "foodRecipes"
 }

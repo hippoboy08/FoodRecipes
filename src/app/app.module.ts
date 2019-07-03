@@ -4,6 +4,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
 // import { RecipesModule } from './recipes/recipes.module';
 import { SharedModule } from './shared/shared.module';
@@ -12,10 +13,11 @@ import { appReducers } from './store/app.reducers';
 
 import { AppComponent } from './app.component';
 
+import { environment } from 'src/environments/environment';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { AuthEffects } from './auth/store/auth.effects';
-import { AppEffects } from './app.effects';
+import { RecipesEffects } from './recipes/store/recipes.effect';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { AppEffects } from './app.effects';
     // ShoppingListModule,
     SharedModule,
     StoreModule.forRoot(appReducers),
-    // EffectsModule.forRoot([AuthEffects, AppEffects])
+    EffectsModule.forRoot([AuthEffects, RecipesEffects]),
+    StoreDevtoolsModule.instrument({logOnly: environment.production})
   ],
   providers: [],
   bootstrap: [AppComponent]

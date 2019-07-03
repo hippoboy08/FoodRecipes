@@ -5,14 +5,15 @@ import { Store } from "@ngrx/store";
 import * as shoppingListActions from '../shopping-list/store/shopping-list.actions';
 
 import { Ingredient } from "../shared/ingredient.model";
-import { AppStates, State } from "./store/shopping-list.reducers";
+// import { State } from "./store/shopping-list.reducers";
+import * as fromApp from "../store/app.reducers";
 
 @Injectable()
 export class ShoppingListService {
   ingredientsChanged = new Subject<Ingredient[]>();
   ingredientsEditing = new Subject<number>();
 
-  constructor(private store: Store<AppStates>) { }
+  constructor(private store: Store<fromApp.AppState>) { }
 
   getIngredient(index: number) {
     // return this.ingredients[index];
@@ -23,7 +24,7 @@ export class ShoppingListService {
     // this.store.select('shoppingList').subscribe((state: State) => {
     //   editedIngredient = state.ingredients[index];
     // });
-    this.store.dispatch(new shoppingListActions.StartEditIngredient(index));
+    return this.store.dispatch(new shoppingListActions.StartEditIngredient(index));
   }
 
   stopEdit() {

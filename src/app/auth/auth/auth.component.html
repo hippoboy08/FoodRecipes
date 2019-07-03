@@ -1,0 +1,26 @@
+<!-- This template-driven method is now replaced by the imperative method
+  <app-alert *ngIf="error" (close)="closeAlert()" [message]="error"></app-alert> -->
+<ng-template appPlaceholder></ng-template>
+
+<h2>{{ signUpMode == true ? 'Register' : 'Log in' }}</h2>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8">
+    <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+    <form *ngIf="!isLoading" (ngSubmit)="authenticate(authForm)" #authForm="ngForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" required ngModel>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" [minlength]="6" required ngModel>
+      </div>
+      <button class="btn btn-success" type="submit" [disabled]="authForm.invalid">
+        Submit
+      </button>
+      <button class="btn btn-primary" type="button" (click)="toggleMode()">
+        {{ signUpMode == false ? 'Register' : 'Log in' }}
+      </button>
+    </form>
+  </div>
+</div>
