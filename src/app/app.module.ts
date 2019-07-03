@@ -26,7 +26,7 @@ import { RecipesEffects } from './recipes/store/recipes.effect';
   imports: [
     /* BrowserModule, which contains all features of CommonModule and some additional features that 
       we need when the app is being run! */
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     CoreModule,
     AppRoutingModule,
     HttpClientModule,
